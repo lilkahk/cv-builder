@@ -4,14 +4,15 @@ import { mdiEmailOutline } from '@mdi/js';
 import { mdiPhone } from '@mdi/js';
 import { mdiMapMarker } from '@mdi/js';
 
-export default function Head() {
+export default function Head({info}) {
+
     return (
         <div className='cv-head'>
-            <h1 className='header-name'>John Doe</h1>
+            <h1 className='header-name'>{info.name}</h1>
             <div className='socials'>
-                <Social text={'abc@example.com'} path={mdiEmailOutline} />
-                <Social text={'(123)-456-7890'} path={mdiPhone} />
-                <Social text={'Waterloo, Canada'} path={mdiMapMarker} />
+                <Social text={info.email} path={mdiEmailOutline} />
+                <Social text={info.phone} path={mdiPhone} />
+                <Social text={info.address} path={mdiMapMarker} />
             </div>
         </div>
     )

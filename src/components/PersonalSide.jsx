@@ -4,9 +4,17 @@ import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
 import { useState } from 'react';
 
-export default function PersonalSide() {
+export default function PersonalSide({info, setInfo}) {
 
     const [isActive, setIsActive] = useState(false);
+
+    const changeField = event => {
+        setInfo(prev => {
+            const obj = {...prev}
+            obj[event.target.name] = event.target.value
+            return obj
+        })
+    }
 
     return (
         <div className="personal-side">
@@ -18,19 +26,19 @@ export default function PersonalSide() {
             <div className="personal-form">
                 <div className="field">
                     <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="John Doe"/>
+                    <input type="text" name="name" id="name" placeholder="John Doe" onChange={changeField} />
                 </div>
                 <div className="field">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="john.doe@example.com"/>
+                    <input type="email" name="email" id="email" placeholder="john.doe@example.com" onChange={changeField} />
                 </div>
                 <div className="field">
                     <label htmlFor="tel">Phone</label>
-                    <input type="phone" name="phone" id="phone" placeholder="(123) 456-7890"/>
+                    <input type="phone" name="phone" id="phone" placeholder="(123) 456-7890" onChange={changeField} />
                 </div>
                 <div className="field">
                     <label htmlFor="addres">Address</label>
-                    <input type="text" name="address" id="address" placeholder='Waterloo, Canada'/>
+                    <input type="text" name="address" id="address" placeholder='Waterloo, Canada' onChange={changeField} />
                 </div>
             </div>}
         </div>
