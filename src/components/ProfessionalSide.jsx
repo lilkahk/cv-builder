@@ -16,8 +16,9 @@ export default function ProfessionalSide() {
             </div>
             {isActive &&
             <div className="select-professional">
-                <div>Umbrella Inc.</div>
-                <div>Black Mesa Labs</div>
+                <div>ABC Inc.</div>
+                <div>London Technologies</div>
+                <div>German Interactive Labs</div>
                 <div className="add-professional">Add Experience</div>
             </div>
             }

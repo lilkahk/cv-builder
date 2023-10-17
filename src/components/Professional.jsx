@@ -5,23 +5,23 @@ export default function Professional() {
         <div className="professional">
             <h2 className="professional-title">Professional Experience</h2>
             <Content 
-                date={'08/2020 - present'} 
-                location={'New York City, US'} 
-                name={'Umbrella Inc.'}
+                date={'08/2021 - present'} 
+                location={'San Francisco, US'} 
+                name={'ABC Inc.'}
                 role={'UX & UI Designer'}
-                description={'Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android'}
-            />
+                description={'Collaborated on user experience and user interface designs for a diverse clientele, spanning self-service applications in telecommunications to mobile games on iOS and Android platforms.'}
+                />
             <Content 
-                date={'04/2018 – 02/2019'}
-                location={'Berlin, Germany'}
-                name={'Black Mesa Labs'}
-                role={'UX Research Assistant'}
-                description={'Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.'}
-            />
+                date={'04/2018 – 010/2020'}
+                location={'London, England'}
+                name={'London Technologies'}
+                role={'Front-End Developper'}
+                description={'Created and implemented interactive and responsive web interfaces for a variety of clients, ranging from e-commerce platforms to data visualization dashboards, ensuring seamless user experiences across multiple devices and browsers.'}
+                />
             <Content 
-                date={'04/2018 – 02/2019'}
+                date={'04/2016 – 02/2018'}
                 location={'Berlin, Germany'}
-                name={'Black Mesa Labs'}
+                name={'German Interactive Labs'}
                 role={'UX Research Assistant'}
                 description={'Supported senior researchers on accessibility standards for the open web. Created and usability tested wireframes and prototypes. Produced interactive documentation for quick onboarding of new researchers.'}
             />

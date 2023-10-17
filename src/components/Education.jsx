@@ -5,7 +5,7 @@ export default function Education() {
         <div className="education">
             <h2 className="education-title">Education</h2>
             <Content 
-                date={'08/2023 - Present'}
+                date={'08/2022 - Present'}
                 location={'Waterloo, Canada'}
                 school={'University of Waterloo'}
                 major={'Bachelor of Computer Science'}
