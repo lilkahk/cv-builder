@@ -16,12 +16,12 @@ function App() {
   const [educations, setEducations] = useState([{
     id: uuid(),
     date: '08/2022 - Present',
-    location: 'Waterloo, Canada',
-    school: 'University of Waterloo',
-    major: 'Bachelor of Computer Science'
+    location: 'Stanford, US',
+    school: 'Stanford University',
+    major: 'Master of Data Science'
   }, {
     id: uuid(),
-    date: '08/2022 - Present',
+    date: '08/2018 - 05/2022',
     location: 'Waterloo, Canada',
     school: 'University of Waterloo',
     major: 'Bachelor of Computer Science'
