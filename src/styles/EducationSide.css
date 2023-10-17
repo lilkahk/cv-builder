@@ -1,0 +1,28 @@
+.education-side {
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    background-color: white;
+}
+
+.education-side-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.select-education {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.25rem;
+}
+
+.select-education div {
+    background-color: var(--bck-color);
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1rem;
+}

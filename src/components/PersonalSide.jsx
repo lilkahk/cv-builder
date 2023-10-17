@@ -1,14 +1,20 @@
 import './../styles/PersonalSide.css'
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
+import { mdiMenuUp } from '@mdi/js';
+import { useState } from 'react';
 
 export default function PersonalSide() {
+
+    const [isActive, setIsActive] = useState(false);
+
     return (
         <div className="personal-side">
-            <div className="personal-title">
+            <div className="personal-title" onClick={() => setIsActive(!isActive)}>
                 <h2>Personal Information</h2>
-                <Icon path={mdiMenuDown} size={1} />
+                {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
+            {isActive && 
             <div className="personal-form">
                 <div className="field">
                     <label htmlFor="name">Name</label>
@@ -24,9 +30,9 @@ export default function PersonalSide() {
                 </div>
                 <div className="field">
                     <label htmlFor="addres">Address</label>
-                    <input type="text" name="address" id="address"/>
+                    <input type="text" name="address" id="address" placeholder='Waterloo, Canada'/>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
