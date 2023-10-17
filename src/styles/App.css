@@ -1,0 +1,8 @@
+#root {
+    padding: 36px;
+    background-color: var(--bck-color);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 793px;
+    gap: 36px;
+}

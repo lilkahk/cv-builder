@@ -1,0 +1,34 @@
+.personal-side {
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    background-color: white;
+}
+
+.personal-title {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.personal-form {
+    margin-top: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+.personal-form label {
+    padding: 0rem 0.5rem;
+}
+
+.personal-form input {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: 1px solid var(--input-border);
+    background-color: var(--bck-color);
+}

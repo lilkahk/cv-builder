@@ -1,0 +1,12 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --bck-color: rgb(236, 237, 238);
+  --primary-color: rgb(60, 73, 155);
+  --primary-text: white;
+  --input-border: rgb(184, 178, 178);
+}

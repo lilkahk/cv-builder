@@ -1,0 +1,31 @@
+.education {
+    margin: 2.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.education-title {
+    text-align: center;
+    width: 100%;
+    background-color: var(--bck-color);
+    padding: 0.5rem 0rem;
+}
+
+.education-description {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 1rem 0rem;
+    gap: 1rem;
+}
+
+.education-dates-location, .education-info {
+    line-height: 1.75rem;
+}
+
+.school-name {
+    font-weight: bold;
+    font-size: 1.15rem;
+}
