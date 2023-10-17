@@ -22,8 +22,11 @@
     padding: 0.5rem 1rem;
     text-align: center;
     font-weight: bold;
-    cursor: pointer;
     border-radius: 1rem;
+}
+
+.side-education-display h4 {
+    cursor: pointer;
 }
 
 .side-education-display::after {
@@ -41,14 +44,29 @@
 }
 
 .add-education {
+    margin: 1rem 1rem 0rem;
+}
+
+.add-education-title {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 3px solid var(--bck-color);
     padding: 0.5rem 1rem;
-    margin: 1rem 1rem 0rem;
     cursor: pointer;
     gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.confirm-add {
+    background-color: rgb(45, 228, 61);
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    text-align: center;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .education-form {
