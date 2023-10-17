@@ -1,15 +1,17 @@
 import './../styles/Education.css'
 
-export default function Education() {
+export default function Education({educations}) {
     return (
         <div className="education">
             <h2 className="education-title">Education</h2>
-            <Content 
-                date={'08/2022 - Present'}
-                location={'Waterloo, Canada'}
-                school={'University of Waterloo'}
-                major={'Bachelor of Computer Science'}
-            />
+            {educations.map(education => {
+                return <Content key={education.id}
+                        date={education.date}
+                        location={education.location}
+                        school={education.school}
+                        major={education.major}
+                        />
+            })}
         </div>
     )
 }

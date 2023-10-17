@@ -4,11 +4,11 @@ import Head from './Head';
 import Professional from './Professional';
 
 
-export default function Cv({info}) {
+export default function Cv({info, educations}) {
     return (
         <div className="cv">
             <Head info={info} />
-            <Education />
+            <Education educations={educations} />
             <Professional />
         </div>
     )

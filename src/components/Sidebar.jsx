@@ -3,12 +3,12 @@ import EducationSide from './EducationSide'
 import PersonalSide from './PersonalSide'
 import ProfessionalSide from './ProfessionalSide'
 
-export default function Sidebar({info, setInfo}) {
+export default function Sidebar({info, setInfo, educations, setEducations}) {
 
     return (
         <div className="sidebar">
             <PersonalSide info={info} setInfo={setInfo} />
-            <EducationSide />
+            <EducationSide educations={educations} setEducations={setEducations} />
             <ProfessionalSide />
         </div>
     )

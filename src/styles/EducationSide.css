@@ -15,14 +15,63 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 0.25rem;
+    margin-top: 1rem;
 }
 
-.select-education div {
-    background-color: var(--bck-color);
-    margin-top: 0.75rem;
+.side-education-display {
     padding: 0.5rem 1rem;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
     border-radius: 1rem;
+}
+
+.side-education-display::after {
+    content: '';
+    display: block;
+    border: 1.5px solid var(--bck-color);
+    margin-top: 1rem;
+}
+
+.side-education-display:first-child::before {
+    content: '';
+    display: block;
+    border: 1.5px solid var(--bck-color);
+    margin-bottom: 1rem;
+}
+
+.add-education {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--bck-color);
+    padding: 0.5rem 1rem;
+    margin: 1rem 1rem 0rem;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.education-form {
+    margin-top: 1rem 0rem;
+}
+
+.education-field{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0rem 1.25rem;
+    gap: 0.5rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.education-form label {
+    padding: 0rem 0.5rem;
+}
+
+.education-form input {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: 1px solid var(--input-border);
+    background-color: var(--bck-color);
 }
