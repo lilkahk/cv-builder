@@ -1,11 +1,12 @@
 import { v4 as uuid } from 'uuid';
 import { mdiPlusThick } from '@mdi/js';
 import Icon from '@mdi/react';
+import './../styles/SideSectionDisplay.css'
 
-export { SideEducationDisplay, AddEducation }
+export { SideSectionDisplay, AddElement }
 
 // Displays all the elements in the sidebar
-function SideEducationDisplay({elements, setElements, elementOpen,
+function SideSectionDisplay({elements, setElements, elementOpen,
      setElementOpen, isOpen, idx, closeAdd, section}) {
 
     const handleInput = event => {
@@ -39,14 +40,14 @@ function SideEducationDisplay({elements, setElements, elementOpen,
     }
 
     return (
-        <div className='side-education-display'onClick={noh4} onMouseOver={pointer} >
+        <div className='side-elements-display'onClick={noh4} onMouseOver={pointer} >
             <h4 onClick={() => {
                 closeAdd(false)
                 return elementOpen === idx ? setElementOpen(-1) : setElementOpen(idx)}}> 
                 {elements.school || elements.company}</h4>
             {isOpen && 
             <>
-            <EducationForm handleInput={handleInput} elements={elements} section={section} />
+            <ElementForm handleInput={handleInput} elements={elements} section={section} />
             <div className="delete-section" onClick={deleteSection}>Delete</div>
             </>
             }
@@ -54,7 +55,7 @@ function SideEducationDisplay({elements, setElements, elementOpen,
     )
 }
 
-function AddEducation({isOpen, setOpen, setElements, close, section}) {
+function AddElement({isOpen, setOpen, setElements, close, section}) {
 
     const confirmEducation = event => {
         // Gather data
@@ -96,8 +97,8 @@ function AddEducation({isOpen, setOpen, setElements, close, section}) {
     }
 
     return (
-        <div className="add-education">
-            <div className="add-education-title" onClick={() => {
+        <div className="add-element">
+            <div className="add-element-title" onClick={() => {
                 setOpen(!isOpen)
                 close(-1)}}>
                 <h5>Add {section === 'education' ? 'Education' : 'Experience'}</h5>
@@ -105,7 +106,7 @@ function AddEducation({isOpen, setOpen, setElements, close, section}) {
             </div>
             {isOpen &&
             <>
-                <EducationForm add={true} section={section} />
+                <ElementForm add={true} section={section} />
                 <div className="confirm-add" onClick={confirmEducation} >Confirm</div>
             </>
             }
@@ -113,27 +114,27 @@ function AddEducation({isOpen, setOpen, setElements, close, section}) {
     )
 }
 
-function EducationForm({ handleInput = (() => null), elements = {}, add = false, section }) {
+function ElementForm({ handleInput = (() => null), elements = {}, add = false, section }) {
     return (
-        <div className="education-form">
-            <div className="education-field">
+        <div className="element-form">
+            <div className="element-field">
                 <label htmlFor="date">Date</label>
                 <input type="text" id='date' name='date' value={elements.date}
                 placeholder='08/2022 - Present' onChange={handleInput} />
             </div>
-            <div className="education-field">
+            <div className="element-field">
                 <label htmlFor="location">Location</label>
                 <input type="text" id='location' name='location' value={elements.location}
                 placeholder='Waterloo, Canada' onChange={handleInput} />
             </div>
             { section === 'education' &&
                 <>
-                     <div className="education-field">
+                     <div className="element-field">
                         <label htmlFor="school" className={add ? 'school-label' : null }>Institution Name</label>
                         <input type="text" id='school' name='school' value={elements.school}
                         placeholder='University of Waterloo' onChange={handleInput} />
                     </div>
-                    <div className="education-field">
+                    <div className="element-field">
                         <label htmlFor="major">Area of Study</label>
                         <input type="text" id='major' name='major' value={elements.major}
                         placeholder='Bachelor of Computer Science' onChange={handleInput} />
@@ -142,17 +143,17 @@ function EducationForm({ handleInput = (() => null), elements = {}, add = false,
             }
             { section === 'experience' &&
                 <>
-                    <div className="education-field">
+                    <div className="element-field">
                         <label htmlFor="company" className={add ? 'school-label' : null }>Company Name</label>
                         <input type="text" id='company' name='company' value={elements.company}
                         placeholder='ABC Inc.' onChange={handleInput} />
                     </div>
-                    <div className="education-field">
+                    <div className="element-field">
                         <label htmlFor="role">Role</label>
                         <input type="text" id='role' name='role' value={elements.role}
                         placeholder='Front-End Developer' onChange={handleInput} />
                     </div>
-                    <div className="education-field">
+                    <div className="element-field">
                         <label htmlFor="description">Description</label>
                         <input type="text" id='description' name='description' value={elements.description}
                         placeholder='Designed the front end of web applications' onChange={handleInput} />

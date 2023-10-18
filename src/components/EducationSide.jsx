@@ -1,9 +1,9 @@
-import './../styles/EducationSide.css'
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
 import { useState } from 'react';
-import { SideEducationDisplay, AddEducation } from './SideSectionDisplay';
+import { SideSectionDisplay, AddElement } from './SideSectionDisplay';
+import './../styles/SideSectionDisplay.css'
 
 export default function EducationSide({educations, setEducations}) {
 
@@ -14,8 +14,8 @@ export default function EducationSide({educations, setEducations}) {
     const [addOpen, setAddOpen] = useState(false);
 
     return (
-        <div className="education-side">
-            <div className="education-side-title" onClick={() => {
+        <div className="section-side">
+            <div className="section-side-title" onClick={() => {
                 setIsActive(!isActive)
                 setEducationOpen(-1)
                 setAddOpen(false)
@@ -24,15 +24,15 @@ export default function EducationSide({educations, setEducations}) {
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
             {isActive &&
-            <div className="select-education">
+            <div className="select-elements">
                 {educations.map((education, index) => {
-                    return <SideEducationDisplay 
+                    return <SideSectionDisplay 
                     key={education.id} elements={education} setElements={setEducations}
                     elementOpen={educationOpen} setElementOpen={setEducationOpen}
                     isOpen={educationOpen === index} idx={index}
                     closeAdd={setAddOpen} section='education' />
                 })}
-                <AddEducation isOpen={addOpen} setOpen={setAddOpen} section='education'
+                <AddElement isOpen={addOpen} setOpen={setAddOpen} section='education'
                 setElements={setEducations} close={setEducationOpen}/>
             </div>
             }

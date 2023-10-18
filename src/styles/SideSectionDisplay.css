@@ -1,53 +1,53 @@
-.education-side {
+.section-side {
     padding: 1rem 1.5rem;
     border-radius: 2rem;
     background-color: white;
 }
 
-.education-side-title {
+.section-side-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
 }
 
-.select-education {
+.select-elements {
     display: flex;
     flex-direction: column;
     padding-bottom: 0.25rem;
     margin-top: 1rem;
 }
 
-.side-education-display {
+.side-elements-display {
     padding: 0.5rem 1rem;
     text-align: center;
     font-weight: bold;
     border-radius: 1rem;
 }
 
-.side-education-display h4 {
+.side-elements-display h4 {
     cursor: pointer;
 }
 
-.side-education-display::after {
+.side-elements-display::after {
     content: '';
     display: block;
     border: 1.5px solid var(--bck-color);
     margin-top: 1rem;
 }
 
-.side-education-display:first-child::before {
+.side-elements-display:first-child::before {
     content: '';
     display: block;
     border: 1.5px solid var(--bck-color);
     margin-bottom: 1rem;
 }
 
-.add-education {
+.add-element {
     margin: 1rem 1rem 0rem;
 }
 
-.add-education-title {
+.add-element-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,11 +75,11 @@
     margin-bottom: 1.5rem;
 }
 
-.education-form {
+.element-form {
     margin-top: 1rem 0rem;
 }
 
-.education-field{
+.element-field{
     display: flex;
     flex-direction: column;
     margin: 0.5rem 0rem 0.85rem;
@@ -89,11 +89,11 @@
     text-align: left;
 }
 
-.education-form label {
+.element-form label {
     padding: 0rem 0.5rem;
 }
 
-.education-form input {
+.element-form input {
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     outline: none;
