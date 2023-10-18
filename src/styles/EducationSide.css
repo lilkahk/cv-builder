@@ -108,13 +108,22 @@
     color: rgb(89, 89, 107);
 }
 
-.invalid-school {
+.invalid-school, .invalid-company {
     position: relative;
 }
 
 .invalid-school::after {
     color: red;
     content: 'Institution Name Required';
+    position: absolute;
+    top: 87%;
+    left: 2%;
+    font-size: 0.8rem;
+}
+
+.invalid-company::after {
+    color: red;
+    content: 'Company Name Required';
     position: absolute;
     top: 87%;
     left: 2%;

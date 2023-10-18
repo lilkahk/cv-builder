@@ -32,7 +32,7 @@ export default function EducationSide({educations, setEducations}) {
                     isOpen={educationOpen === index} idx={index}
                     closeAdd={setAddOpen} section='education' />
                 })}
-                <AddEducation isOpen={addOpen} setOpen={setAddOpen}
+                <AddEducation isOpen={addOpen} setOpen={setAddOpen} section='education'
                 setElements={setEducations} close={setEducationOpen}/>
             </div>
             }

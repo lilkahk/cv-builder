@@ -33,7 +33,7 @@ export default function ProfessionalSide({ experiences, setExperiences }) {
                     isOpen={experienceOpen === idx} idx={idx}
                     closeAdd={setAddExp} section='experience' />
                 })}
-                <AddEducation isOpen={addExp} setOpen={setAddExp}
+                <AddEducation isOpen={addExp} setOpen={setAddExp} section='experience'
                 setElements={setExperiences} close={setExperienceOpen} />
             </div>
             }
