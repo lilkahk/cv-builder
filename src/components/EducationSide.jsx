@@ -33,7 +33,8 @@ export default function EducationSide({educations, setEducations}) {
                     educationOpen={educationOpen} isOpen={educationOpen === index}
                     idx={index} closeAdd={setAddOpen} />
                 })}
-                <AddEducation isOpen={addOpen} setOpen={setAddOpen} setEducations={setEducations} />
+                <AddEducation isOpen={addOpen} setOpen={setAddOpen}
+                setEducations={setEducations} close={setEducationOpen}/>
             </div>
             }
         </div>
@@ -51,47 +52,65 @@ function SideEducationDisplay({education, isOpen, idx, setEducationOpen, educati
         })
     }
 
+    const deleteSection = event => {
+        setEducationOpen(-1)
+        setEducations(prev => {
+            const arr = [...prev]
+            arr.splice(idx, 1)
+            return arr
+        })
+    }
+
+    const noh4 = event => {
+        if(event.target.tagName === 'DIV') {
+            closeAdd(false)
+            educationOpen === idx ? setEducationOpen(-1) : setEducationOpen(idx)
+        }
+    }
+
+    const pointer = event => {
+        if (event.target.tagName === 'DIV') {
+            event.target.style.cursor = 'pointer'
+        }
+    }
+
     return (
-        <div className='side-education-display'>
+        <div className='side-education-display' onClick={noh4} onMouseOver={pointer} >
             <h4 onClick={() => {
                 closeAdd(false)
                 return educationOpen === idx ? setEducationOpen(-1) : setEducationOpen(idx)}}> 
                 {education.school}</h4>
-            {isOpen && <EducationForm handleInput={handleInput} />}
+            {isOpen && 
+            <>
+            <EducationForm handleInput={handleInput} education={education} />
+            <div className="delete-section" onClick={deleteSection}>Delete</div>
+            </>
+            }
         </div>
     )
 }
 
 function AddEducation({isOpen, setOpen, setEducations, close}) {
 
-    const handleInput = event => {
-        const parent = event.target.parentNode.parentNode
-        const childs = parent.childNodes
+    const confirmEducation = event => {
+        // Gather data
+        const form = event.target.parentNode.childNodes[1]
+        const childs = form.childNodes
         const obj = {
-            new: true,
             id: uuid(),
             date: childs[0].childNodes[1].value,
             location: childs[1].childNodes[1].value,
             school: childs[2].childNodes[1].value,
             major: childs[3].childNodes[1].value
         }
+        if (obj.school === '') {
+            childs[2].classList.add('invalid-school')
+            return
+        }
+        // Update state
         setEducations(prev => {
             const arr = [...prev]
-            const last = arr[arr.length - 1]
-            if (last.hasOwnProperty('new')) {
-                arr[arr.length - 1] = obj
-            } else {
-                arr.push(obj)
-            }
-            return arr
-        })
-    }
-
-    const confirmEducation = event => {
-        // Remove new property
-        setEducations(prev => {
-            const arr = [...prev]
-            delete arr[arr.length - 1].new
+            arr.push(obj)
             return arr
         })
         // Close form
@@ -108,7 +127,7 @@ function AddEducation({isOpen, setOpen, setEducations, close}) {
             </div>
             {isOpen &&
             <>
-                <EducationForm handleInput={handleInput} />
+                <EducationForm add={true} />
                 <div className="confirm-add" onClick={confirmEducation} >Confirm</div>
             </>
             }
@@ -116,24 +135,28 @@ function AddEducation({isOpen, setOpen, setEducations, close}) {
     )
 }
 
-function EducationForm({handleInput}) {
+function EducationForm({ handleInput = (() => null), education = {}, add = false }) {
     return (
         <div className="education-form">
             <div className="education-field">
                 <label htmlFor="date">Date</label>
-                <input type="text" id='date' name='date' placeholder='08/2022 - Present' onChange={handleInput} />
+                <input type="text" id='date' name='date' value={education.date}
+                placeholder='08/2022 - Present' onChange={handleInput} />
             </div>
             <div className="education-field">
                 <label htmlFor="location">Location</label>
-                <input type="text" id='location' name='location' placeholder='Waterloo, Canada' onChange={handleInput} />
+                <input type="text" id='location' name='location' value={education.location}
+                placeholder='Waterloo, Canada' onChange={handleInput} />
             </div>
             <div className="education-field">
-                <label htmlFor="school">Institution Name</label>
-                <input type="text" id='school' name='school' placeholder='University of Waterloo' onChange={handleInput} />
+                <label htmlFor="school" className={add ? 'school-label' : null }>Institution Name</label>
+                <input type="text" id='school' name='school' value={education.school}
+                placeholder='University of Waterloo' onChange={handleInput} />
             </div>
             <div className="education-field">
                 <label htmlFor="major">Area of Study</label>
-                <input type="text" id='major' name='major' placeholder='Bachelor of Computer Science' onChange={handleInput} />
+                <input type="text" id='major' name='major' value={education.major}
+                placeholder='Bachelor of Computer Science' onChange={handleInput} />
             </div>
         </div>
     )
