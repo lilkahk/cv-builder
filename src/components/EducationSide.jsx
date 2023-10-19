@@ -5,9 +5,8 @@ import { useState } from 'react';
 import { SideSectionDisplay, AddElement } from './SideSectionDisplay';
 import './../styles/SideSectionDisplay.css'
 
-export default function EducationSide({educations, setEducations}) {
-
-    const [isActive, setIsActive] = useState(false);
+export default function EducationSide({ educations, setEducations, isActive, setIsActive,
+    setPer, setPro }) {
 
     const [educationOpen, setEducationOpen] = useState(-1);
 
@@ -17,6 +16,8 @@ export default function EducationSide({educations, setEducations}) {
         <div className="section-side">
             <div className="section-side-title" onClick={() => {
                 setIsActive(!isActive)
+                setPer(false)
+                setPro(false)
                 setEducationOpen(-1)
                 setAddOpen(false)
             }}>

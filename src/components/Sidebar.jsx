@@ -7,15 +7,21 @@ import ProfessionalSide from './ProfessionalSide'
 export default function Sidebar({ info, setInfo, educations, setEducations,
      experiences, setExperiences }) {
 
-    const [openSection, setOpenSection] = useState(-1)
+    const [isPersonalActive, setIsPersonalActive] = useState(false)
+    const [isEducationActive, setIsEducationActive] = useState(false)
+    const [isProfessionalActive, setIsProfessionalActive] = useState(false)
 
     return (
         <div className="sidebar">
-            <PersonalSide info={info} setInfo={setInfo} open={openSection} setOpen={setOpenSection} />
+            <PersonalSide info={info} setInfo={setInfo} isActive={isPersonalActive}
+             setIsActive={setIsPersonalActive} setEd={setIsEducationActive}
+              setPro={setIsProfessionalActive} />
             <EducationSide educations={educations} setEducations={setEducations}
-            open={openSection} setOpen={setOpenSection} />
+            isActive={isEducationActive} setIsActive={setIsEducationActive}
+            setPer={setIsPersonalActive} setPro={setIsProfessionalActive} />
             <ProfessionalSide experiences={experiences} setExperiences={setExperiences}
-            open={openSection} setOpen={setOpenSection} />
+            isActive={isProfessionalActive} setIsActive={setIsProfessionalActive}
+            setPer={setIsPersonalActive} setEd={setIsEducationActive} />
         </div>
     )
 }

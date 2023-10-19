@@ -5,9 +5,8 @@ import { useState } from 'react';
 import { SideSectionDisplay, AddElement } from './SideSectionDisplay';
 import './../styles/SideSectionDisplay.css';
 
-export default function ProfessionalSide({ experiences, setExperiences }) {
-
-    const [isActive, setIsActive] = useState(false);
+export default function ProfessionalSide({ experiences, setExperiences, isActive, setIsActive,
+    setPer, setEd }) {
 
     const [experienceOpen, setExperienceOpen] = useState(-1);
 
@@ -17,6 +16,8 @@ export default function ProfessionalSide({ experiences, setExperiences }) {
         <div className="section-side">
             <div className="section-side-title" onClick={() => {
                 setIsActive(!isActive)
+                setPer(false)
+                setEd(false)
                 setExperienceOpen(-1)
                 setAddExp(false)
             }}>
