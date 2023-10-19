@@ -3,6 +3,6 @@
     background-color: var(--bck-color);
     min-height: 100vh;
     display: grid;
-    grid-template-columns: auto 793px;
+    grid-template-columns: min(max(250px, calc(100% - 830px)), 600px) 794px;
     gap: 36px;
 }

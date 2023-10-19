@@ -4,7 +4,7 @@ import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
 import { useState } from 'react';
 
-export default function PersonalSide({info, setInfo}) {
+export default function PersonalSide({ info, setInfo, open, setOpen }) {
 
     const [isActive, setIsActive] = useState(false);
 
@@ -19,26 +19,30 @@ export default function PersonalSide({info, setInfo}) {
     return (
         <div className="personal-side">
             <div className="personal-title" onClick={() => setIsActive(!isActive)}>
-                <h2>Personal Information</h2>
+                <h2>Personal</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
             {isActive && 
             <div className="personal-form">
                 <div className="field">
                     <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="John Doe" onChange={changeField} />
+                    <input type="text" name="name" id="name" placeholder="John Doe"
+                    onChange={changeField} value={info.name} />
                 </div>
                 <div className="field">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="john.doe@example.com" onChange={changeField} />
+                    <input type="email" name="email" id="email" placeholder="john.doe@example.com"
+                    onChange={changeField} value={info.email} />
                 </div>
                 <div className="field">
                     <label htmlFor="tel">Phone</label>
-                    <input type="phone" name="phone" id="phone" placeholder="(123) 456-7890" onChange={changeField} />
+                    <input type="phone" name="phone" id="phone" placeholder="(123) 456-7890"
+                    onChange={changeField} value={info.phone} />
                 </div>
                 <div className="field">
                     <label htmlFor="addres">Address</label>
-                    <input type="text" name="address" id="address" placeholder='Waterloo, Canada' onChange={changeField} />
+                    <input type="text" name="address" id="address" placeholder='Waterloo, Canada'
+                    onChange={changeField} value={info.address} />
                 </div>
             </div>}
         </div>
