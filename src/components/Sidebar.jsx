@@ -5,7 +5,7 @@ import PersonalSide from './PersonalSide'
 import ProfessionalSide from './ProfessionalSide'
 
 export default function Sidebar({ info, setInfo, educations, setEducations,
-     experiences, setExperiences }) {
+     experiences, setExperiences, color, setColor }) {
 
     const [isPersonalActive, setIsPersonalActive] = useState(false)
     const [isEducationActive, setIsEducationActive] = useState(false)
@@ -13,6 +13,7 @@ export default function Sidebar({ info, setInfo, educations, setEducations,
 
     return (
         <div className="sidebar">
+            <ColorPicker color={color} setColor={setColor} />
             <PersonalSide info={info} setInfo={setInfo} isActive={isPersonalActive}
              setIsActive={setIsPersonalActive} setEd={setIsEducationActive}
               setPro={setIsProfessionalActive} />
@@ -22,6 +23,17 @@ export default function Sidebar({ info, setInfo, educations, setEducations,
             <ProfessionalSide experiences={experiences} setExperiences={setExperiences}
             isActive={isProfessionalActive} setIsActive={setIsProfessionalActive}
             setPer={setIsPersonalActive} setEd={setIsEducationActive} />
+        </div>
+    )
+}
+
+function ColorPicker({ color, setColor }) {
+
+    return (
+        <div className="color-picker">
+            <label htmlFor="color-selector">Change Colour</label>
+            <input type="color" id='color-selector' value={color} 
+            onChange={() => setColor(event.target.value)} />
         </div>
     )
 }

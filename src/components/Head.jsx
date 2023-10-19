@@ -4,10 +4,13 @@ import { mdiEmailOutline } from '@mdi/js';
 import { mdiPhone } from '@mdi/js';
 import { mdiMapMarker } from '@mdi/js';
 
-export default function Head({info}) {
+export default function Head({ info, color }) {
+
+
+    console.log('a')
 
     return (
-        <div className='cv-head'>
+        <div className='cv-head' style={{backgroundColor: color}} >
             <h1 className='header-name'>{info.name}</h1>
             <div className='socials'>
                 <Social text={info.email} path={mdiEmailOutline} />

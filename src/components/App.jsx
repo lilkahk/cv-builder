@@ -56,17 +56,21 @@ function App() {
     }
   ])
 
+  const [color, setColor] = useState('#3c499b')
+
   return (
     <>
       <Sidebar 
       info={info} setInfo={setInfo}
       educations={educations} setEducations={setEducations}
       experiences={experiences} setExperiences={setExperiences}
+      color={color} setColor={setColor}
       />
       <Cv 
       info={info}
       educations={educations}
       experiences={experiences}
+      color={color}
       />
     </>
   )
