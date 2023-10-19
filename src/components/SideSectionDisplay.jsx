@@ -27,20 +27,26 @@ function SideSectionDisplay({elements, setElements, elementOpen,
     }
 
     const noh4 = event => {
-        if(event.target.tagName === 'DIV') {
+        if(event.target.tagName === 'DIV' && 
+           event.target.classList.contains('side-elements-display') &&
+           event.target.style.cursor === 'pointer') {
+            console.log('a', event.target)
             closeAdd(false)
             elementOpen === idx ? setElementOpen(-1) : setElementOpen(idx)
         }
     }
 
     const pointer = event => {
-        if (event.target.tagName === 'DIV') {
+        if (event.target.childNodes[0] !== undefined && 
+            event.target.childNodes[0].tagName === 'H4' &&
+            event.target.childNodes[0].textContent === '') {
             event.target.style.cursor = 'pointer'
         }
     }
+      
 
     return (
-        <div className='side-elements-display'onClick={noh4} onMouseOver={pointer} >
+        <div className='side-elements-display' onClick={noh4} onMouseOver={pointer} >
             <h4 onClick={() => {
                 closeAdd(false)
                 return elementOpen === idx ? setElementOpen(-1) : setElementOpen(idx)}}> 
