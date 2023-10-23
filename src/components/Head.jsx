@@ -6,11 +6,10 @@ import { mdiMapMarker } from '@mdi/js';
 
 export default function Head({ info, color }) {
 
-
-    console.log('a')
+    const txtColor = hexToRgb(color);
 
     return (
-        <div className='cv-head' style={{backgroundColor: color}} >
+        <div className='cv-head' style={{backgroundColor: color, color: txtColor}}>
             <h1 className='header-name'>{info.name}</h1>
             <div className='socials'>
                 <Social text={info.email} path={mdiEmailOutline} />
@@ -28,4 +27,15 @@ function Social({text, path}) {
             <p>{text}</p>
         </div>
     )
+}
+
+function hexToRgb(hex) {
+    // Remove the '#'
+    hex = hex.replace(/^#/, '');
+    // Get r,g,b
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    // Determine the color of the text
+    return r + g + b > 600 ? '#000000' : '#ffffff'
 }

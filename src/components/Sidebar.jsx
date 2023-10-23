@@ -33,7 +33,7 @@ function ColorPicker({ color, setColor }) {
         <div className="color-picker">
             <label htmlFor="color-selector">Change Colour</label>
             <input type="color" id='color-selector' value={color} 
-            onChange={() => setColor(event.target.value)} />
+            onChange={(event) => setColor(event.target.value)} />
         </div>
     )
 }
