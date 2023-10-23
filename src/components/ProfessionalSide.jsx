@@ -21,8 +21,8 @@ export default function ProfessionalSide({ experiences, setExperiences, isActive
                 setExperienceOpen(-1)
                 setAddExp(false)
                 isActive
-                ? document.querySelector('.section-side').classList.remove('section-animate')
-                : document.querySelector('.section-side').classList.add('section-animate')
+                ? document.querySelectorAll('.section-side')[1].classList.remove('section-animate')
+                : document.querySelectorAll('.section-side')[1].classList.add('section-animate')
             }}>
                 <h2>Professional</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
