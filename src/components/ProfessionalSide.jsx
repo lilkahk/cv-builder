@@ -20,12 +20,15 @@ export default function ProfessionalSide({ experiences, setExperiences, isActive
                 setEd(false)
                 setExperienceOpen(-1)
                 setAddExp(false)
+                isActive
+                ? document.querySelector('.section-side').classList.remove('section-animate')
+                : document.querySelector('.section-side').classList.add('section-animate')
             }}>
                 <h2>Professional</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
             {isActive &&
-            <div className="select-elements">
+            <div className="select-elements elements-animate">
                 {experiences.map((exp, idx) => {
                     return <SideSectionDisplay 
                     key={exp.id} elements={exp} setElements={setExperiences}

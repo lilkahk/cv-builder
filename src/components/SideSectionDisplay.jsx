@@ -52,10 +52,10 @@ function SideSectionDisplay({elements, setElements, elementOpen,
                 return elementOpen === idx ? setElementOpen(-1) : setElementOpen(idx)}}> 
                 {elements.school || elements.company}</h4>
             {isOpen && 
-            <>
+            <div className='elements-animate'>
             <ElementForm handleInput={handleInput} elements={elements} section={section} />
             <div className="delete-section" onClick={deleteSection}>Delete</div>
-            </>
+            </div>
             }
         </div>
     )
@@ -111,10 +111,10 @@ function AddElement({isOpen, setOpen, setElements, close, section}) {
                 <Icon path={mdiPlusThick} size={0.55} />
             </div>
             {isOpen &&
-            <>
+            <div className='elements-animate'>
                 <ElementForm add={true} section={section} />
                 <div className="confirm-add" onClick={confirmEducation} >Confirm</div>
-            </>
+            </div>
             }
         </div>
     )

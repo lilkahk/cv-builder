@@ -20,12 +20,15 @@ export default function EducationSide({ educations, setEducations, isActive, set
                 setPro(false)
                 setEducationOpen(-1)
                 setAddOpen(false)
+                isActive
+                ? document.querySelector('.section-side').classList.remove('section-animate')
+                : document.querySelector('.section-side').classList.add('section-animate')
             }}>
                 <h2>Education</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
             {isActive &&
-            <div className="select-elements">
+            <div className="select-elements elements-animate">
                 {educations.map((education, index) => {
                     return <SideSectionDisplay 
                     key={education.id} elements={education} setElements={setEducations}

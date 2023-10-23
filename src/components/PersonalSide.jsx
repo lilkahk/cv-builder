@@ -2,7 +2,6 @@ import './../styles/PersonalSide.css'
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
-import { useState } from 'react';
 
 export default function PersonalSide({ info, setInfo, isActive, setIsActive, setEd, setPro }) {
 
@@ -20,12 +19,15 @@ export default function PersonalSide({ info, setInfo, isActive, setIsActive, set
                 setIsActive(!isActive)
                 setEd(false)
                 setPro(false)
+                isActive
+                ? document.querySelector('.personal-side').classList.remove('section-animate')
+                : document.querySelector('.personal-side').classList.add('section-animate')
             }}>
                 <h2>Personal</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
             </div>
             {isActive && 
-            <div className="personal-form">
+            <div className="personal-form elements-animate">
                 <div className="field">
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" placeholder="John Doe"
