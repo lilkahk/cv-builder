@@ -1,7 +1,7 @@
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SideSectionDisplay, AddElement } from './SideSectionDisplay';
 import './../styles/SideSectionDisplay.css';
 
@@ -12,6 +12,14 @@ export default function ProfessionalSide({ experiences, setExperiences, isActive
 
     const [addExp, setAddExp] = useState(false);
 
+    useEffect(() => {
+        if (isActive) {
+          document.querySelectorAll('.section-side')[1].classList.add('section-animate');
+        } else {
+          document.querySelectorAll('.section-side')[1].classList.remove('section-animate');
+        }
+      }, [isActive]);
+
     return (
         <div className="section-side">
             <div className="section-side-title" onClick={() => {
@@ -20,9 +28,6 @@ export default function ProfessionalSide({ experiences, setExperiences, isActive
                 setEd(false)
                 setExperienceOpen(-1)
                 setAddExp(false)
-                isActive
-                ? document.querySelectorAll('.section-side')[1].classList.remove('section-animate')
-                : document.querySelectorAll('.section-side')[1].classList.add('section-animate')
             }}>
                 <h2>Professional</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}

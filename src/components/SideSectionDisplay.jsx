@@ -65,7 +65,7 @@ function AddElement({isOpen, setOpen, setElements, close, section}) {
 
     const confirmEducation = event => {
         // Gather data
-        const form = event.target.parentNode.childNodes[1]
+        const form = event.target.parentNode.childNodes[0]
         const childs = form.childNodes
         const obj = {
             id: uuid(),

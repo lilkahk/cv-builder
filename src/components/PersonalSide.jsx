@@ -2,6 +2,7 @@ import './../styles/PersonalSide.css'
 import Icon from '@mdi/react';
 import { mdiMenuDown } from '@mdi/js';
 import { mdiMenuUp } from '@mdi/js';
+import { useEffect } from 'react';
 
 export default function PersonalSide({ info, setInfo, isActive, setIsActive, setEd, setPro }) {
 
@@ -13,15 +14,20 @@ export default function PersonalSide({ info, setInfo, isActive, setIsActive, set
         })
     }
 
+    useEffect(() => {
+        if (isActive) {
+          document.querySelector('.personal-side').classList.add('section-animate');
+        } else {
+          document.querySelector('.personal-side').classList.remove('section-animate');
+        }
+      }, [isActive]);
+
     return (
         <div className="personal-side" >
             <div className="personal-title" onClick={() => {
                 setIsActive(!isActive)
                 setEd(false)
                 setPro(false)
-                isActive
-                ? document.querySelector('.personal-side').classList.remove('section-animate')
-                : document.querySelector('.personal-side').classList.add('section-animate')
             }}>
                 <h2>Personal</h2>
                 {!isActive ? <Icon path={mdiMenuDown} size={1} /> : <Icon path={mdiMenuUp} size={1} />}
